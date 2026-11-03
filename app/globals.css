@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* 종이 · 먹 · 주홍 인장 */
+@theme inline {
+  --color-paper: #f5f1e8;
+  --color-card: #fffdf8;
+  --color-ink: #1f1b16;
+  --color-ink-sub: #645c51;
+  --color-ink-faint: #9a9184;
+  --color-line: #e3dccd;
+  --color-accent: #b23a26;
+  --color-accent-soft: #f5e3da;
+  --color-moss: #3f5a4c;
+  --color-moss-soft: #e5ebe4;
+
+  --font-sans: var(--font-noto-sans), "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif), "AppleMyungjo", serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  header, nav, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  main {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
