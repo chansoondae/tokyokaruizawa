@@ -52,10 +52,12 @@ export function TimelineItem({ spot, hasImage, isLast }: Props) {
   if (spot.kind === "move") {
     return (
       <Rail time={spot.time} dot="minor" isLast={isLast}>
-        <div className="flex items-center gap-2.5 text-sm rounded-xl border border-dashed border-line px-3 py-2.5">
-          <Bus className="h-4 w-4 text-moss shrink-0" />
-          <span className="font-medium">{spot.name}</span>
-          {spot.description && <span className="text-ink-faint ml-auto shrink-0">{spot.description}</span>}
+        <div className="flex items-start gap-2.5 text-sm rounded-xl border border-dashed border-line px-3 py-2.5">
+          <Bus className="h-4 w-4 text-moss shrink-0 mt-0.5" />
+          <span className="flex flex-wrap items-baseline gap-x-2">
+            <span className="font-medium">{spot.name}</span>
+            {spot.description && <span className="text-ink-faint text-xs">{spot.description}</span>}
+          </span>
         </div>
       </Rail>
     );
@@ -71,7 +73,7 @@ export function TimelineItem({ spot, hasImage, isLast }: Props) {
         )}
         <div className="p-4 space-y-3">
           <div>
-            <p className="flex items-center gap-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-accent">
+            <p className="flex items-center gap-1.5 text-xs font-bold tracking-[0.18em] text-accent">
               {spot.kind === "airport" && <Plane className="h-3.5 w-3.5" />}
               {kindLabel[spot.kind]}
             </p>

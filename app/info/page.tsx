@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { PhoneButton } from "@/components/common/PhoneButton";
 import { ExternalLinkButton } from "@/components/common/ExternalLinkButton";
 import { VisitJapanWeb } from "@/components/info/VisitJapanWeb";
+import { pageMetadata } from "@/lib/seo";
 
 const sections = [
   {
@@ -39,6 +41,12 @@ const sections = [
     content: "인솔자 서찬수(차순): 010-5663-5153\n주일 한국대사관: +81-3-3452-7611\n일본 긴급: 110(경찰) / 119(소방·구급)",
   },
 ];
+
+export const metadata: Metadata = pageMetadata({
+  title: "여행 정보",
+  description: "비짓재팬웹 등록, 환전, 옷차림, 식사 등 출발 전에 꼭 알아야 할 여행 정보입니다.",
+  path: "/info",
+});
 
 export default function InfoPage() {
   return (

@@ -1,18 +1,29 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayHeader } from "@/components/day/DayHeader";
 import { TimelineItem } from "@/components/day/TimelineItem";
 import { MealInfo } from "@/components/day/MealInfo";
 import { days, getDay } from "@/lib/itinerary";
+import { pageMetadata } from "@/lib/seo";
 
 const imageExists = (imagePath?: string) =>
   !!imagePath && existsSync(path.join(process.cwd(), "public", imagePath));
 
 export function generateStaticParams() {
   return days.map((d) => ({ day: String(d.dayNumber) }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ day: string }> }): Promise<Metadata> {
+  const { day } = await params;
+  const data = getDay(parseInt(day, 10));
+  if (!data) return {};
+  const title = `${data.dayNumber}일차 ${data.weekday} · ${data.region}`;
+  const description = data.summary.join(" → ");
+  return pageMetadata({ title, description, path: `/day/${data.dayNumber}` });
 }
 
 export default async function DayPage({ params }: { params: Promise<{ day: string }> }) {

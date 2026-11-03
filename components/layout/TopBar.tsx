@@ -4,7 +4,7 @@ import { useFontSize } from "@/components/FontSizeProvider";
 import { Minus, Plus, Printer } from "lucide-react";
 
 const iconButton =
-  "w-10 h-10 rounded-full flex items-center justify-center transition text-ink-sub active:bg-line disabled:text-line";
+  "w-11 h-11 rounded-full flex items-center justify-center transition text-ink-sub active:bg-line disabled:text-line";
 
 export function TopBar() {
   const { step, increase, decrease } = useFontSize();
@@ -12,7 +12,7 @@ export function TopBar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur-md border-b border-line h-14">
       <div className="max-w-lg mx-auto h-full flex items-center justify-between pl-4 pr-2">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 h-11">
           <span className="w-7 h-7 rounded-full bg-accent text-white font-serif font-bold text-sm flex items-center justify-center">
             藝
           </span>

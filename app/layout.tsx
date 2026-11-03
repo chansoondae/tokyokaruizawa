@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
+import { pageMetadata, siteName } from "@/lib/seo";
 import { TopBar } from "@/components/layout/TopBar";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { FontSizeProvider } from "@/components/FontSizeProvider";
@@ -17,9 +18,21 @@ const notoSerif = Noto_Serif_KR({
   preload: false,
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
+const homeTitle = `${siteName} | 2026년 11월 3박 4일`;
+
 export const metadata: Metadata = {
-  title: "도쿄 · 가루이자와 아트 투어",
-  description: "2026년 11월 목~일 3박 4일 · 몽트래블 아트 투어 일정표",
+  metadataBase: new URL(siteUrl),
+  ...pageMetadata({
+    title: homeTitle,
+    description:
+      "오르세 · 루브르 · 터너 특별전부터 히로시 센주 미술관, 하라 뮤지엄 ARC까지. 2026년 11월 목~일 3박 4일, 몽트래블과 함께하는 미술관 여행 일정표입니다.",
+    path: "/",
+  }),
+  title: { default: homeTitle, template: `%s | ${siteName}` },
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>",
   },

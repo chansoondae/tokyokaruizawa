@@ -7,7 +7,7 @@ export function HeroBanner() {
       <div className="absolute right-8 top-24 w-16 h-16 rounded-full border border-paper/25" aria-hidden />
 
       <div className="relative">
-        <p className="text-[0.7rem] font-bold tracking-[0.25em] text-paper/70">MONG TRAVEL · ART TOUR 2026</p>
+        <p className="text-xs font-bold tracking-[0.2em] text-paper/70">MONG TRAVEL · ART TOUR 2026</p>
         <h1 className="font-serif font-bold text-[2rem] leading-tight mt-4">
           가루이자와에서<br />도쿄까지,<br />미술관 여행
         </h1>

@@ -34,7 +34,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
     <button
       type="button"
       onClick={copy}
-      className="w-full flex items-center gap-3 px-3 py-2.5 text-left active:bg-paper transition"
+      className="w-full flex items-center gap-3 px-3 py-2.5 min-h-12 text-left active:bg-paper transition"
     >
       <span className="text-xs text-ink-faint w-20 shrink-0">{label}</span>
       <span className="flex-1 min-w-0 text-sm font-bold break-words">{value}</span>
@@ -54,7 +54,7 @@ export function VisitJapanWeb() {
   return (
     <section className="bg-card rounded-2xl border border-line p-4 space-y-4">
       <div>
-        <p className="text-[0.7rem] font-bold tracking-[0.18em] text-accent">출발 전 필수</p>
+        <p className="text-xs font-bold tracking-[0.18em] text-accent">출발 전 필수</p>
         <h2 className="font-serif font-bold text-lg mt-1">비짓재팬웹 (Visit Japan Web)</h2>
         <p className="text-sm text-ink-sub leading-relaxed mt-2">
           일본 정부가 운영하는 입국 준비 사이트입니다. 출발 전에 입국심사와 세관신고 정보를 미리 등록하면
