@@ -2,8 +2,8 @@ import { Calendar, User, Bus, Hotel, PlaneLanding, PlaneTakeoff } from "lucide-r
 
 const items = [
   { icon: Calendar, label: "기간", value: "2026년 11월 · 목~일 (3박 4일)" },
-  { icon: PlaneLanding, label: "도착", value: "나리타 공항 · 1일차(목) 11:30까지 도착, 12:30 T1 미팅" },
-  { icon: PlaneTakeoff, label: "출발", value: "나리타 공항 · 4일차(일) 18:30" },
+  { icon: PlaneLanding, label: "도착", value: "나리타 공항 · 1일차(목) 12:00 T1 미팅 · 출발" },
+  { icon: PlaneTakeoff, label: "출발", value: "나리타 공항 · 4일차(일) 18:45" },
   { icon: User, label: "인솔자", value: "차가운순대(서찬수)" },
   { icon: Bus, label: "교통편", value: "전용차량" },
   { icon: Hotel, label: "숙소", value: "호텔 인디고 카루이자와 1박 · 호텔 메트로폴리탄 이케부쿠로 2박" },

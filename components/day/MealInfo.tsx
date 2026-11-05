@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BedDouble } from "lucide-react";
 import { GoogleMapsButton } from "@/components/common/GoogleMapsButton";
 
@@ -7,9 +8,10 @@ interface Props {
   dinner: string;
   accommodation: string;
   hotelMapsUrl: string;
+  hotelImagePath?: string;
 }
 
-export function MealInfo({ breakfast, lunch, dinner, accommodation, hotelMapsUrl }: Props) {
+export function MealInfo({ breakfast, lunch, dinner, accommodation, hotelMapsUrl, hotelImagePath }: Props) {
   const meals = [
     { label: "조식", value: breakfast },
     { label: "중식", value: lunch },
@@ -28,6 +30,16 @@ export function MealInfo({ breakfast, lunch, dinner, accommodation, hotelMapsUrl
           </div>
         ))}
       </dl>
+      {!returning && hotelImagePath && (
+        <Image
+          src={hotelImagePath}
+          alt={accommodation}
+          width={0}
+          height={0}
+          sizes="(max-width: 512px) 100vw, 512px"
+          className="block w-full h-auto"
+        />
+      )}
       <div className="p-4 flex items-center gap-3">
         <BedDouble className="h-5 w-5 text-moss shrink-0" />
         <div className="flex-1">

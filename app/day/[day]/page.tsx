@@ -62,6 +62,7 @@ export default async function DayPage({ params }: { params: Promise<{ day: strin
         dinner={data.dinner}
         accommodation={data.accommodation}
         hotelMapsUrl={data.hotelMapsUrl}
+        hotelImagePath={imageExists(data.hotelImagePath) ? data.hotelImagePath : undefined}
       />
 
       <nav className="no-print grid grid-cols-2 gap-3">

@@ -45,6 +45,21 @@ export function TimelineItem({ spot, hasImage, isLast }: Props) {
           <Utensils className="h-4 w-4 text-accent shrink-0" />
           <span className="font-bold">{spot.name}</span>
         </div>
+        {hasImage && spot.imagePath && (
+          <Image
+            src={spot.imagePath}
+            alt={spot.name}
+            width={0}
+            height={0}
+            sizes="(max-width: 512px) 100vw, 512px"
+            className="mt-2 block w-full h-auto rounded-xl"
+          />
+        )}
+        {spot.mapsUrl && (
+          <div className="mt-2">
+            <GoogleMapsButton url={spot.mapsUrl} />
+          </div>
+        )}
       </Rail>
     );
   }
@@ -67,9 +82,14 @@ export function TimelineItem({ spot, hasImage, isLast }: Props) {
     <Rail time={spot.time} dot="major" isLast={isLast}>
       <article className="bg-card rounded-2xl overflow-hidden border border-line shadow-[0_1px_2px_rgb(31_27_22/0.04)]">
         {hasImage && spot.imagePath && (
-          <div className="relative w-full aspect-[16/10]">
-            <Image src={spot.imagePath} alt={spot.name} fill sizes="(max-width: 512px) 100vw, 512px" className="object-cover" />
-          </div>
+          <Image
+            src={spot.imagePath}
+            alt={spot.exhibition ? `${spot.name} ${spot.exhibition}` : spot.name}
+            width={0}
+            height={0}
+            sizes="(max-width: 512px) 100vw, 512px"
+            className="block w-full h-auto"
+          />
         )}
         <div className="p-4 space-y-3">
           <div>
